@@ -82,8 +82,6 @@ class NLPSCAN:
 
         text_embedded = embedder.embed_texts(df_texts['sentence'])
 
-        print(text_embedded.shape)
-
         print("Retrieving Neighbors...")
 
         NeighborDataset = Neighbor_Dataset(num_neighbors= self.num_neighbors, num_classes = self.num_classes, device = self.device)
