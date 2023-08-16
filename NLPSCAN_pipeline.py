@@ -82,7 +82,7 @@ class NLPSCAN:
 
         text_embedded = embedder.embed_texts(df_texts['sentence'])
 
-        print(text_embedded)
+        print(text_embedded.shape)
 
         print("Retrieving Neighbors...")
 

@@ -39,7 +39,7 @@ class FinetuningThroughSelflabeling:
 
         predictions_train, probabilities_train = self.model_trainer.get_predictions(predict_dataloader)
 
-        probabilities_array = np.array(probabilities_train.tolist())
+        probabilities_array = np.array(probabilities_train)#.tolist())
 
         softmax_probabilities = np.apply_along_axis(softmax, 1, probabilities_array)
 
