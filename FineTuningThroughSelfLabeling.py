@@ -1,6 +1,6 @@
 import pandas as pd
 import torch
-from NLPSCAN_Trainer import DocScanDataset, DocSCAN_Trainer
+from NLPSCAN_Trainer import DocScanDataset, NLPSCAN_Trainer
 import numpy as np
 from Embedder import Embedder
 from scipy.special import softmax
@@ -10,7 +10,7 @@ import copy
 class FinetuningThroughSelflabeling:
 
     def __init__(self,
-                 model_trainer: DocSCAN_Trainer,
+                 model_trainer: NLPSCAN_Trainer,
                  embedder: Embedder,
                  train_data: pd.DataFrame,
                  train_embeddings: torch.tensor,
