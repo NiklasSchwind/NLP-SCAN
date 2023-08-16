@@ -82,7 +82,7 @@ class Embedder:
         if self.embedding_method == 'IndicativeSentence':
 
             if self.indicative_sentence_position in ['first', 'last'] and '<mask>' in self.indicative_sentence:
-                self.embed_texts_indicative_sentence(texts)
+                return self.embed_texts_indicative_sentence(texts)
             elif self.indicative_sentence_position not in ['first', 'last']:
                 raise ValueError(
                     f"Invalid Indicative Sentence Position: '{self.indicative_sentence_position}' is not one of the valid options. You can only select \"last\" and \"first\".")
@@ -93,7 +93,8 @@ class Embedder:
                 raise ValueError(
                     f"Invalid Indicative Sentence: '{self.indicative_sentence}' doesn't include <mask> token!")
         elif self.embedding_method == 'SBert':
-            self.embed_texts_SBert(texts)
+            return self.embed_texts_SBert(texts)
         else:
             raise ValueError(
                 f"Invalid Embedding Method: '{self.embedding_method}' is not one of the valid options. You can only select \"IndicativeSentence\" and \"SBert\".")
+

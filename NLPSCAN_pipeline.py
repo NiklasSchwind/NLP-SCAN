@@ -73,8 +73,6 @@ class NLPSCAN:
 
         df_texts = self.load_data(self.file_path_data)
 
-        print(df_texts)
-
         print("Embedding Sentences...")
 
         embedder = Embedder(embedding_method = self.embedding_method,
