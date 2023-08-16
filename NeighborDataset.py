@@ -100,13 +100,14 @@ class Neighbor_Dataset:
 
     def create_neighbor_dataset(self, data):
 
-        if True:#self.device == "cpu":
-            memory_bank = MemoryBank(data, "", len(data),
+        #if self.device == "cpu":
+        memory_bank = MemoryBank(data, "", len(data),
                                           data.shape[-1],
                                           self.num_classes)
-            neighbor_dataset = self._create_neighbor_dataset(memory_bank = memory_bank)
+        neighbor_dataset = self._create_neighbor_dataset(memory_bank = memory_bank)
+        '''  
         else:
             indices = self._retrieve_neighbours_gpu(data.cpu().numpy(), num_neighbors=self.num_neighbors)
             neighbor_dataset = self._create_neighbor_dataset(indices = indices)
-
+        '''
         return neighbor_dataset
