@@ -1,6 +1,6 @@
 # Ready to use NLP-SCAN
 
-This is a ready to use version of the NLP-SCAN unsupervised classification method developed in my master thesis "Learning to Classify Texts without Labels. A NLP Adaptation of SCAN". It is based on the code for the paper [DocSCAN: Unsupervised Text Classification via Learning from Neighbors](https://aclanthology.org/2022.konvens-1.4/), a previous approach to translating the [SCAN method](https://link.springer.com/chapter/10.1007/978-3-030-58607-2_16) to NLP.  There can be code fragments from the original DocSCAN code still in this code. 
+This is a ready to use version of the NLP-SCAN unsupervised classification method developed in my master thesis "Learning to Classify Texts without Labels. A NLP Adaptation of SCAN". It is based on the code for the paper [DocSCAN: Unsupervised Text Classification via Learning from Neighbors](https://aclanthology.org/2022.konvens-1.4/), a previous approach to translating the [SCAN method](https://link.springer.com/chapter/10.1007/978-3-030-58607-2_16) to NLP.  There can be code fragments from the original DocSCAN code still in this code. However, we added a new embedding method that is applicable to all classification domains and added the Fine-Tuning through Self-Labeling step from the original SCAN. 
 
 ## Installation
 
