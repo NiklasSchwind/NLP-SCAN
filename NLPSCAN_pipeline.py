@@ -1,4 +1,8 @@
-from typing import Union, Literal, List
+from typing import Union, List
+try:
+    from typing import Literal
+except ImportError:
+    from typing_extensions import Literal
 from pathlib import Path
 import torch
 import pandas as pd

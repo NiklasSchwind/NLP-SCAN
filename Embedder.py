@@ -1,6 +1,10 @@
 from sentence_transformers import SentenceTransformer
 import torch
-from typing import Union, Literal, List
+from typing import Union, List
+try:
+    from typing import Literal
+except ImportError:
+    from typing_extensions import Literal
 import pandas as pd
 from transformers import RobertaTokenizer, RobertaModel
 
