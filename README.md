@@ -21,7 +21,7 @@ There is a shellscript called "setup_environment.sh" that does sets up the envir
 1. Save unlabeled dataset as text file with one text per line 
 2. Copy the path to the file into the file_path_data variable in the NLPSCAN script 
 3. Write the path where NLP-SCAN should save the resulting classification of the dataset into the file_path_result variable in the NLPSCAN script
-4. If needed, adjust the other options in the NLPSCAN script 
+4. If needed, adjust the other options in the NLPSCAN or NLPSCAN_pipeline scripts
 5. Create the NLPSCAN environment with the setup_environment.sh
 6. Activate the NLPSCAN environment with 
 ```shell
