@@ -28,6 +28,7 @@ class NLPSCAN:
                  clustering_method: str = None,
                  num_epochs: int = 5,
                  prototype_threshold: float = 0.95,
+                 includeFineTuningThroughSelfLabeling: bool = True,
                 ):
         self.file_path_data = file_path_data
         self.file_path_result = file_path_result
@@ -42,6 +43,7 @@ class NLPSCAN:
         self.num_epochs = num_epochs
         self.prototype_threshold = prototype_threshold
         self.Trainer = None
+        self.includeFineTuningThroughSelfLabeling = includeFineTuningThroughSelfLabeling
 
         if entropy_weight is None and embedding_method == 'IndicativeSentence':
             self.entropy_weight = 3
@@ -97,22 +99,24 @@ class NLPSCAN:
         Trainer.train_model(neighbor_dataset=neighbor_dataset, train_dataset_embeddings=text_embedded,
                             num_epochs=self.num_epochs, entropy_weight=self.entropy_weight)
 
-        print("Refining Classification Model...")
+        if self.includeFineTuningThroughSelfLabeling:
 
-        SelfLabeling = FinetuningThroughSelflabeling(model_trainer=Trainer,
-                                                     embedder=embedder, train_data=df_texts, train_embeddings=text_embedded,
-                                                     neighbor_dataset=neighbor_dataset,
-                                                     batch_size=self.batch_size, device=self.device,
-                                                     threshold=self.prototype_threshold,
-                                                     clustering_method=self.clustering_method)
+            print("Refining Classification Model...")
 
-        num_prototypes_before = SelfLabeling.num_prototypes
-        num_prototypes = SelfLabeling.num_prototypes + 1
+            SelfLabeling = FinetuningThroughSelflabeling(model_trainer=Trainer,
+                                                         embedder=embedder, train_data=df_texts, train_embeddings=text_embedded,
+                                                         neighbor_dataset=neighbor_dataset,
+                                                         batch_size=self.batch_size, device=self.device,
+                                                         threshold=self.prototype_threshold,
+                                                         clustering_method=self.clustering_method)
 
-        while num_prototypes_before < num_prototypes:
-            num_prototypes_before = num_prototypes
-            SelfLabeling.fine_tune_through_selflabeling_fast()
-            num_prototypes = SelfLabeling.num_prototypes
+            num_prototypes_before = SelfLabeling.num_prototypes
+            num_prototypes = SelfLabeling.num_prototypes + 1
+
+            while num_prototypes_before < num_prototypes:
+                num_prototypes_before = num_prototypes
+                SelfLabeling.fine_tune_through_selflabeling_fast()
+                num_prototypes = SelfLabeling.num_prototypes
 
         print("Writing Classification Result...")
 
@@ -162,23 +166,25 @@ class NLPSCAN:
         Trainer.train_model(neighbor_dataset=neighbor_dataset, train_dataset_embeddings=text_embedded,
                             num_epochs=self.num_epochs, entropy_weight=self.entropy_weight)
 
-        print("Refining Classification Model...")
+        if self.includeFineTuningThroughSelfLabeling:
 
-        SelfLabeling = FinetuningThroughSelflabeling(model_trainer=Trainer,
-                                                     embedder=embedder, train_data=df_texts,
-                                                     train_embeddings=text_embedded,
-                                                     neighbor_dataset=neighbor_dataset,
-                                                     batch_size=self.batch_size, device=self.device,
-                                                     threshold=self.prototype_threshold,
-                                                     clustering_method=self.clustering_method)
+            print("Refining Classification Model...")
 
-        num_prototypes_before = SelfLabeling.num_prototypes
-        num_prototypes = SelfLabeling.num_prototypes + 1
+            SelfLabeling = FinetuningThroughSelflabeling(model_trainer=Trainer,
+                                                         embedder=embedder, train_data=df_texts,
+                                                         train_embeddings=text_embedded,
+                                                         neighbor_dataset=neighbor_dataset,
+                                                         batch_size=self.batch_size, device=self.device,
+                                                         threshold=self.prototype_threshold,
+                                                         clustering_method=self.clustering_method)
 
-        while num_prototypes_before < num_prototypes:
-            num_prototypes_before = num_prototypes
-            SelfLabeling.fine_tune_through_selflabeling_fast()
-            num_prototypes = SelfLabeling.num_prototypes
+            num_prototypes_before = SelfLabeling.num_prototypes
+            num_prototypes = SelfLabeling.num_prototypes + 1
+
+            while num_prototypes_before < num_prototypes:
+                num_prototypes_before = num_prototypes
+                SelfLabeling.fine_tune_through_selflabeling_fast()
+                num_prototypes = SelfLabeling.num_prototypes
 
         self.Trainer = Trainer
 
