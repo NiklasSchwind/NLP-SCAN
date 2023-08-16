@@ -100,7 +100,7 @@ class Neighbor_Dataset:
 
     def create_neighbor_dataset(self, data):
 
-        if self.device == "cpu":
+        if True:#self.device == "cpu":
             memory_bank = MemoryBank(data, "", len(data),
                                           data.shape[-1],
                                           self.num_classes)
