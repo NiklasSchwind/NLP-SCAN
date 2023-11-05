@@ -29,7 +29,7 @@ conda activate NLPSCAN
 ```
 7. Start the NLPSCAN script with the following command
 ```shell
-PYTHONPATH=src python src/NLPSCAN.py 
+PYTHONPATH=src python NLPSCAN.py 
 ```
 8. NLPSCAN will classify your unlabeled dataset and safe the classified version as a csv file with the columns "sentence" and "class"
 
