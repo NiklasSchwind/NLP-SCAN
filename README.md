@@ -6,8 +6,8 @@ This is a ready to use version of the NLP-SCAN unsupervised classification metho
 
 Assuming [Anaconda](https://docs.anaconda.com/anaconda/install/) and linux, the environment can be installed with the following command:
 ```shell
-conda create -n scan python=3.6
-conda activate scan
+conda create -n NLPSCAN python=3.6
+conda activate NLPSCAN
 
 pip install -U sentence-transformers
 conda install faiss-cpu -c pytorch
