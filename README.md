@@ -14,8 +14,6 @@ conda install faiss-cpu -c pytorch
 pip3 install -r requirements.txt
 ```
 
-There is a shellscript called "setup_environment.sh" that does sets up the environment automatically. 
-
 ## Apply NLP-SCAN to unlabeled text dataset
 
 1. Save unlabeled dataset as text file with one text per line 
