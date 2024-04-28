@@ -9,9 +9,9 @@ Assuming [Anaconda](https://docs.anaconda.com/anaconda/install/) and linux, the 
 conda create -n NLPSCAN python=3.6
 conda activate NLPSCAN
 
-pip install -U sentence-transformers
+pip3 install -U sentence-transformers
 conda install faiss-cpu -c pytorch
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 There is a shellscript called "setup_environment.sh" that does sets up the environment automatically. 
@@ -22,7 +22,7 @@ There is a shellscript called "setup_environment.sh" that does sets up the envir
 2. Copy the path to the file into the file_path_data variable in the NLPSCAN script 
 3. Write the path where NLP-SCAN should save the resulting classification of the dataset into the file_path_result variable in the NLPSCAN script
 4. If needed, adjust the other options in the NLPSCAN or NLPSCAN_pipeline scripts
-5. Create the NLPSCAN environment with the setup_environment.sh
+5. Create the NLPSCAN environment as described in the installation section
 6. Activate the NLPSCAN environment with 
 ```shell
 conda activate NLPSCAN
