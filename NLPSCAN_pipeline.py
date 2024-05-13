@@ -11,6 +11,7 @@ from NeighborDataset import Neighbor_Dataset
 from NLPSCAN_Trainer import NLPSCAN_Trainer, DocScanDataset
 from FineTuningThroughSelfLabeling import FinetuningThroughSelflabeling
 
+
 class NLPSCAN:
 
     def __init__(self,
