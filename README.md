@@ -34,5 +34,5 @@ conda activate nlpscan
 ```shell
 python NLPSCAN.py 
 ```
-8. NLPSCAN will classify your unlabeled dataset and safe the classified version as a csv file with the columns "sentence" and "class"
+8. NLPSCAN will classify your unlabeled dataset and safe the classified version as a csv file with the columns "sentence" and "class" 
 
