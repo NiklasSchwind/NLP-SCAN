@@ -14,8 +14,6 @@ Assuming [Anaconda](https://docs.anaconda.com/anaconda/install/) and linux, the 
 ```shell
 conda create -n nlpscan python=3.8 
 conda activate nlpscan
-pip install faiss-cpu==1.7.0
-pip install -U sentence-transformers
 pip install -r requirements.txt
 ```
 
