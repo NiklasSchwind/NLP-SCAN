@@ -1,36 +1,48 @@
 # NLP-SCAN
 
-NLP-SCAN is an unsupervised classification method using an innovative embedding method that can tailor the NLPSCAN to all kinds of classification task. It is based on the code for the paper [DocSCAN: Unsupervised Text Classification via Learning from Neighbors](https://aclanthology.org/2022.konvens-1.4/), a previous approach to translating the [SCAN method](https://link.springer.com/chapter/10.1007/978-3-030-58607-2_16) to NLP. However, NLPSCAN additionally translated the Fine-Tuning through Self-Labeling step from the original SCAN to NLP resulting in increase accuracy.  
+NLP-SCAN is an unsupervised classification method using an innovative embedding technique that can be tailored to various classification tasks. It is based on the code for the paper [DocSCAN: Unsupervised Text Classification via Learning from Neighbors](https://aclanthology.org/2022.konvens-1.4/), which translates the [SCAN method](https://link.springer.com/chapter/10.1007/978-3-030-58607-2_16) to NLP. However, NLP-SCAN additionally incorporates the Fine-Tuning through Self-Labeling step from the original SCAN method, resulting in increased accuracy.
 
 ## Advantages
 NLP-SCAN is a transformer-embedding-based unsupervised text classification algorithm with the following main advantages:
-- It trains a text classification model on unlabeled text datasets 
-- The semantic focus of the classification model can be tailored to the classification task by using the Indicative Sentence embedding method
-- It is fast, accurate and needs minimal input by a human
+- Trains a text classification model on unlabeled text datasets
+- The semantic focus of the classification model can be tailored to the task using the Indicative Sentence embedding method
+- Fast, accurate, and requires minimal human input
 
 ## Installation
 
-Assuming [Anaconda](https://docs.anaconda.com/anaconda/install/) and linux, the environment can be installed with the following command:
+Assuming [Anaconda](https://docs.anaconda.com/anaconda/install/) and Linux, the environment can be installed with the following commands:
 ```shell
 conda create -n nlpscan python=3.8 
 conda activate nlpscan
 pip install -r requirements.txt
 ```
 
-## Apply NLP-SCAN to unlabeled text dataset
+## Tutorial: Applying NLP-SCAN to Unlabeled Text Data
 
-1. Save unlabeled text dataset as text file with one text per line 
-2. Copy the path to the file into the file_path_data variable in the NLPSCAN.py script 
-3. Write the path where NLP-SCAN should save the resulting classification into the file_path_result variable in the NLPSCAN script
-4. If needed, adjust the other configurations in the NLPSCAN script 
-5. Create the NLPSCAN environment using the installation guide
-6. Activate the NLPSCAN environment with 
+This tutorial will guide you through the steps to apply NLP-SCAN to your unlabeled text dataset.
+
+### Step 1: Prepare Your Dataset
+Ensure your text data is saved as a text file with one text per line.
+
+### Step 2: Configure File Paths
+Open the `NLPSCAN.py` script. Set the path to your dataset in the `file_path_data` variable and the path for the result in the `file_path_result` variable.
+
+### Step 3: Adjust Configurations
+If needed, adjust other configurations within the `NLPSCAN.py` script to suit your specific requirements.
+
+### Step 4: Create the NLP-SCAN Environment
+Follow the installation instructions to create the NLP-SCAN environment using Anaconda.
+
+### Step 5: Activate the Environment
+Activate the NLP-SCAN environment:
 ```shell
 conda activate nlpscan
 ```
-7. Start the NLPSCAN script with the following command
+### Step 6: Run the NLP-SCAN Script
+Execute the NLP-SCAN script:
 ```shell
-python NLPSCAN.py 
+python NLPSCAN.py
 ```
-8. NLPSCAN will classify your unlabeled dataset and safe the classified version as a csv file with the columns "sentence" and "class" 
+### Step 7: Retrieve Your Results
+NLP-SCAN will process your dataset and save the classified results as a CSV file with "sentence" and "class" columns.
 
